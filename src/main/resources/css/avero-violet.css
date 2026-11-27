@@ -1,0 +1,187 @@
+/* ============================================================================
+   ASTRO — astro-violet.css  (loaded LAST; the "Astro Violet" look)
+   Deep-indigo shell, violet neon accents, frosted purple panels. Only re-points tokens and a few
+   surfaces; layout and behaviour stay in the sheets before it. Remove this file from the load list in
+   MainWindow to get the previous (red/near-black) look back.
+   ============================================================================ */
+.root {
+    -av-bg-0: #080520;  -av-bg-1: #0b0726;  -av-bg-2: #120a35;  -av-bg-3: #1a0f48;  -av-bg-4: #25175f;
+
+    -av-line:     rgba(167,139,250,0.14);
+    -av-line-2:   rgba(167,139,250,0.26);
+    -av-line-hot: rgba(196,181,253,0.55);
+
+    -av-text:      #f3eeff;
+    -av-text-dim:  rgba(228,218,255,0.68);
+    -av-text-mute: rgba(205,190,250,0.45);
+
+    -av-accent:       #7c3aed;   -av-accent-hot:  #9b6bff;   -av-accent-press: #5b21b6;
+    -av-accent-soft:  rgba(124,58,237,0.22);
+    -av-accent-glow:  rgba(139,92,246,0.60);
+    -av-ice:          #c4b5fd;   -av-ice-soft: rgba(196,181,253,0.16);
+
+    -av-ok: #22c55e;  -av-err: #ff3d71;  -av-warn: #f5b942;
+    -av-scrim: rgba(5,3,20,0.60);
+
+    /* Minecraft-layer "red" widgets become violet */
+    -mc-red: #7c3aed;  -mc-red-hi: #c4b5fd;  -mc-red-lo: #3b1a8a;  -mc-red-ink: #12062e;
+    -mc-red-hov: #9b6bff;  -mc-red-press: #5b21b6;
+
+    -av-glass-violet: #8b5cf6;  -av-glass-violet-hot: #a78bfa;  -av-glass-cyan: #c4b5fd;
+    -av-glass-fill:        rgba(139,92,246,0.10);
+    -av-glass-fill-hover:  rgba(139,92,246,0.18);
+    -av-glass-fill-active: rgba(139,92,246,0.28);
+    -av-glass-base:        rgba(16,9,46,0.72);
+    -av-glass-base-hover:  rgba(24,13,64,0.82);
+    -av-glass-border:      rgba(167,139,250,0.22);
+    -av-glass-border-hot:  rgba(196,181,253,0.55);
+    -av-glass-highlight:   rgba(255,255,255,0.08);
+}
+
+.av-shell {
+    -fx-background-color:
+        radial-gradient(center 12% 0%,  radius 45%, rgba(139,92,246,0.22) 0%, transparent 70%),
+        radial-gradient(center 100% 100%, radius 55%, rgba(99,52,220,0.26) 0%, transparent 70%),
+        linear-gradient(to bottom, #0b0726 0%, #070418 100%);
+}
+
+.glow-accent { -fx-effect: dropshadow(gaussian, rgba(139,92,246,0.60), 24, 0.15, 0, 0); }
+
+/* Primary action: the PLAY NOW pill */
+.av-btn-primary, .av-btn-play {
+    -fx-background-color:
+        linear-gradient(to bottom, rgba(255,255,255,0.22) 0%, transparent 45%),
+        linear-gradient(to right, #5b2bf0 0%, #8b3dff 100%);
+    -fx-background-radius: 14;
+    -fx-border-color: rgba(196,181,253,0.75);
+    -fx-border-radius: 14;
+    -fx-border-width: 1;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(124,58,237,0.65), 22, 0.12, 0, 0);
+}
+.av-btn-primary:hover, .av-btn-play:hover {
+    -fx-background-color:
+        linear-gradient(to bottom, rgba(255,255,255,0.30) 0%, transparent 45%),
+        linear-gradient(to right, #6d3cff 0%, #a04dff 100%);
+}
+.av-btn-primary:pressed, .av-btn-play:pressed {
+    -fx-background-color: linear-gradient(to right, #4a20c8 0%, #6d2fd6 100%);
+}
+
+/* ── Top bar ─────────────────────────────────────────────────────────────────────────────────── */
+.search-field {
+    -fx-background-color: rgba(26,15,72,0.62);
+    -fx-background-radius: 16; -fx-border-radius: 16;
+    -fx-border-color: rgba(167,139,250,0.30); -fx-border-width: 1;
+}
+.search-field:hover, .search-field:focus-within { -fx-border-color: rgba(196,181,253,0.70); }
+.account-chip {
+    -fx-background-color: rgba(26,15,72,0.62);
+    -fx-border-color: rgba(167,139,250,0.30);
+}
+
+/* ── Home hero ───────────────────────────────────────────────────────────────────────────────── */
+.home-hero-scrim {
+    -fx-background-color:
+        linear-gradient(to right, rgba(8,5,32,0.82) 0%, rgba(8,5,32,0.45) 45%, transparent 75%),
+        linear-gradient(to bottom, transparent 70%, rgba(8,5,32,0.65) 100%);
+}
+.home-welcome   { -fx-font-family: "Astro Display"; -fx-font-weight: bold; -fx-font-size: 34px; -fx-text-fill: rgba(236,228,255,0.78); }
+.home-wordmark-a { -fx-font-family: "Astro Display"; -fx-font-weight: bold; -fx-font-size: 86px; -fx-text-fill: #ffffff;
+                   -fx-effect: dropshadow(gaussian, rgba(139,92,246,0.55), 18, 0.1, 0, 2); }
+.home-wordmark-b { -fx-font-family: "Astro Display"; -fx-font-weight: bold; -fx-font-size: 86px;
+                   -fx-text-fill: linear-gradient(to bottom, #b57bff 0%, #7c3aed 100%);
+                   -fx-effect: dropshadow(gaussian, rgba(139,92,246,0.7), 22, 0.15, 0, 0); }
+.home-tagline   { -fx-font-family: "Astro Tracked"; -fx-font-weight: bold; -fx-font-size: 22px; -fx-text-fill: rgba(228,218,255,0.80); }
+.home-play, .home-cta { -fx-font-size: 17px; -fx-pref-height: 58; -fx-min-width: 230; }
+.home-play-glow { -fx-background-color: radial-gradient(center 50% 50%, radius 50%, rgba(124,58,237,0.55) 0%, transparent 100%); }
+.home-btn-icon      { -fx-fill: white; }
+.home-btn-icon-line { -fx-fill: transparent; -fx-stroke: rgba(236,228,255,0.9); -fx-stroke-width: 1.6; -fx-stroke-line-cap: round; }
+.home-learn {
+    -fx-pref-height: 58; -fx-min-width: 170; -fx-font-size: 15px;
+    -fx-background-color: rgba(18,10,52,0.72); -fx-background-radius: 14;
+    -fx-border-color: rgba(167,139,250,0.40); -fx-border-radius: 14; -fx-text-fill: #eee6ff;
+}
+.home-learn:hover { -fx-border-color: rgba(196,181,253,0.85); -fx-background-color: rgba(40,22,100,0.80); }
+
+/* ── Servers section ─────────────────────────────────────────────────────────────────────────── */
+.home-section-icon  { -fx-text-fill: #a78bfa; -fx-font-size: 22px; }
+.home-section-title { -fx-font-family: "Astro Display"; -fx-font-weight: bold; -fx-font-size: 24px; -fx-text-fill: #f3eeff; }
+.home-viewall { -fx-background-color: transparent; -fx-text-fill: #a78bfa; -fx-font-weight: bold; -fx-font-size: 14px; -fx-cursor: hand; }
+.home-viewall:hover { -fx-text-fill: #d2c4ff; }
+
+.home-quick { -fx-background-radius: 16; }
+.home-thumb { -fx-background-color: linear-gradient(to bottom right, rgba(124,58,237,0.35), rgba(20,10,60,0.9));
+              -fx-background-radius: 16 0 0 16; }
+/* The fade-to-card overlay on the thumbnail art is painted directly in HomePage.quickCard() with a
+   javafx.scene.paint.LinearGradient, not here — see the comment there for why. */
+.home-quick-title { -fx-font-family: "Astro Display"; -fx-font-weight: bold; -fx-font-size: 20px; -fx-text-fill: #ffffff; }
+.home-quick-hint  { -fx-font-size: 13px; -fx-text-fill: rgba(228,218,255,0.66); }
+.home-quick-arrow     { -fx-text-fill: #e9e0ff; -fx-font-size: 16px; }
+.home-quick-arrow-box { -fx-background-color: rgba(124,58,237,0.30); -fx-background-radius: 999;
+                        -fx-border-color: rgba(167,139,250,0.55); -fx-border-radius: 999; }
+
+.home-pill { -fx-font-family: "Astro Tracked"; -fx-font-weight: bold; -fx-font-size: 12px; -fx-padding: 3 12 3 12;
+             -fx-background-radius: 999; -fx-border-radius: 999; -fx-border-width: 1; }
+.home-pill-ok   { -fx-text-fill: #7dffa8; -fx-background-color: rgba(34,197,94,0.20);  -fx-border-color: rgba(34,197,94,0.60); }
+.home-pill-bad  { -fx-text-fill: #ff9db5; -fx-background-color: rgba(255,61,113,0.20); -fx-border-color: rgba(255,61,113,0.60); }
+.home-pill-idle { -fx-text-fill: rgba(228,218,255,0.80); -fx-background-color: rgba(167,139,250,0.16); -fx-border-color: rgba(167,139,250,0.40); }
+
+/* ── Inputs: focus/selection were the old red ──────────────────────────────────────────────────── */
+.text-field, .password-field, .text-area, .store-field {
+    -fx-highlight-fill: rgba(139,92,246,0.55);
+}
+.text-field:focused, .password-field:focused, .text-area:focused, .store-field:focused {
+    -fx-background-color: rgba(167,139,250,0.55), rgba(14,8,44,0.80);
+    -fx-background-insets: 0, 1;
+}
+.search-field:focus-within, .search-field:hover {
+    -fx-background-color: rgba(34,20,92,0.72);
+    -fx-background-insets: 0;
+    -fx-border-color: rgba(196,181,253,0.75);
+}
+.search-field-input, .search-field-input:focused {
+    -fx-background-color: transparent; -fx-background-insets: 0; -fx-highlight-fill: rgba(139,92,246,0.55);
+}
+
+/* ── Hero art: cool the warm photo toward violet until the new key art is dropped in ──────────── */
+.home-hero-scrim {
+    -fx-background-color:
+        linear-gradient(to right, rgba(8,5,32,0.82) 0%, rgba(8,5,32,0.45) 45%, transparent 75%),
+        linear-gradient(to bottom, transparent 70%, rgba(8,5,32,0.65) 100%),
+        rgba(76,29,170,0.30);
+}
+
+/* ── Update bar: rounded violet glass, docked look ─────────────────────────────────────────────── */
+.av-update-bar {
+    -fx-background-color: rgba(167,139,250,0.40), rgba(16,9,46,0.92);
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 18, 17;
+    -fx-effect: dropshadow(gaussian, rgba(124,58,237,0.45), 26, 0.08, 0, 0);
+}
+.av-update-title { -fx-text-fill: #f3eeff; }
+.av-update-skip  { -fx-text-fill: rgba(228,218,255,0.75); }
+
+.av-rail-indicator { -fx-effect: dropshadow(gaussian, rgba(139,92,246,0.65), 10, 0.25, 0, 0); }
+.lb-overlay-panel {
+    -fx-background-color:
+        linear-gradient(to bottom, #c4b5fd, #7c3aed),
+        linear-gradient(from 0% 0% to 30% 100%, rgba(22,12,60,0.99) 0%, rgba(9,5,28,0.99) 100%);
+}
+
+/* ── Notification bell ─────────────────────────────────────────────────────────────────────────── */
+.av-bell-btn { -fx-background-color: rgba(26,15,72,0.62); -fx-background-radius: 14; -fx-border-color: rgba(167,139,250,0.30);
+               -fx-border-radius: 14; -fx-padding: 12 13 12 13; -fx-cursor: hand; }
+.av-bell-btn:hover { -fx-border-color: rgba(196,181,253,0.75); }
+.av-bell-icon { -fx-fill: transparent; -fx-stroke: #e9e0ff; -fx-stroke-width: 1.7; -fx-stroke-line-join: round; -fx-stroke-line-cap: round; }
+.av-bell-badge { -fx-background-color: #ff3d71; -fx-background-radius: 999; -fx-text-fill: white; -fx-font-size: 11px;
+                 -fx-font-weight: bold; -fx-padding: 1 6 1 6; -fx-min-width: 18; -fx-alignment: center; }
+.av-bell-panel { -fx-background-color: rgba(167,139,250,0.45), rgba(14,8,44,0.97); -fx-background-insets: 0, 1;
+                 -fx-background-radius: 16, 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.55), 24, 0.1, 0, 8); }
+.av-bell-title { -fx-font-family: "Astro Display"; -fx-font-weight: bold; -fx-font-size: 17px; -fx-text-fill: #f3eeff; }
+.av-bell-clear { -fx-background-color: transparent; -fx-text-fill: #a78bfa; -fx-cursor: hand; }
+.av-bell-empty { -fx-text-fill: rgba(228,218,255,0.60); -fx-padding: 14 0 14 0; }
+.av-bell-item { -fx-background-color: rgba(139,92,246,0.12); -fx-background-radius: 12; -fx-padding: 10 12 10 12; }
+.av-bell-item-title { -fx-text-fill: #ffffff; -fx-font-weight: bold; -fx-font-size: 14px; }
+.av-bell-item-body  { -fx-text-fill: rgba(228,218,255,0.75); -fx-font-size: 13px; }
+.av-bell-item-time  { -fx-text-fill: rgba(205,190,250,0.45); -fx-font-size: 11px; }

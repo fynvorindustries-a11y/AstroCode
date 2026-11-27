@@ -1,0 +1,102 @@
+/* ============================================================================
+   ASTRO - clean.css  (loaded after mc-theme.css)
+   Calmer, flatter surfaces. Same colours, fonts and cut-corner shapes.
+   Deliberately NOT touched: .partner-card, the Home hero and the 3D skin model.
+   ============================================================================ */
+
+/* Shell: keep the red diagonal identity, but much quieter. */
+.av-shell {
+    -fx-background-color:
+        radial-gradient(center 0% 100%, radius 60%, rgba(255,70,85,0.07) 0%, transparent 100%),
+        linear-gradient(to bottom right,
+            transparent 0%, transparent 78%,
+            rgba(255,70,85,0.10) 78%, rgba(255,70,85,0.10) 78.5%,
+            transparent 78.5%),
+        linear-gradient(to bottom, #0d1626 0%, #070d17 100%);
+}
+
+/* Cards and panels: one flat body and a hairline, no red ghost or glass streak. */
+.av-card,
+.dashboard-card, .about-stat-card, .settings-section, .filters-panel,
+.mod-card, .modpack-card, .recommended-card, .cape-card, .astro-auth-card,
+.play-side, .store-side {
+    -fx-background-color:
+        rgba(255,255,255,0.09),
+        linear-gradient(from 30% 0% to 70% 100%, rgba(18,32,52,0.97) 0%, rgba(12,21,34,0.97) 100%);
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 16, 15, 15;
+}
+
+/* Hover: just a slightly brighter hairline. */
+.av-card-hot:hover,
+.dashboard-card:hover, .about-stat-card:hover,
+.settings-section:hover, .filters-panel:hover, .mod-card:hover,
+.modpack-card:hover, .recommended-card:hover, .cape-card:hover,
+.astro-auth-card:hover, .play-side:hover, .store-side:hover {
+    -fx-background-color:
+        rgba(255,255,255,0.20),
+        linear-gradient(from 30% 0% to 70% 100%, rgba(22,37,58,0.99) 0%, rgba(14,24,38,0.99) 100%);
+    -fx-background-insets: 0, 1;
+}
+
+/* ---------------------------------------------------------------------------
+   Buttons: same orange-to-red colours, but flat. No gloss streak, no big glow.
+   (Home hero buttons are left alone on purpose.)
+   --------------------------------------------------------------------------- */
+.primary-cta-button, .login-button, .play-page-cta, .ms-hero-button, .av-btn-primary {
+    -fx-background-color: linear-gradient(to right, #ff7a1f 0%, #ff4a2c 55%, #e03040 100%);
+    -fx-background-insets: 0;
+    -fx-background-radius: 8;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-border-radius: 8;
+    -fx-padding: 11 24 11 24;
+    -fx-effect: dropshadow(gaussian, rgba(255,90,60,0.22), 8, 0, 0, 2);
+}
+.primary-cta-button:hover, .login-button:hover, .play-page-cta:hover, .ms-hero-button:hover, .av-btn-primary:hover {
+    -fx-background-color: linear-gradient(to right, #ff8a38 0%, #ff5c3e 55%, #ea4553 100%);
+    -fx-background-insets: 0;
+    -fx-border-color: transparent;
+    -fx-effect: dropshadow(gaussian, rgba(255,90,60,0.30), 10, 0, 0, 3);
+}
+.primary-cta-button:armed, .login-button:armed, .play-page-cta:armed, .ms-hero-button:armed, .av-btn-primary:armed {
+    -fx-background-color: linear-gradient(to right, #d8641a 0%, #d8402a 55%, #b82a36 100%);
+    -fx-background-insets: 0;
+    -fx-border-color: transparent;
+    -fx-effect: none;
+}
+
+/* Secondary buttons: a little rounder to match the primary. */
+.button, .av-btn, .av-btn-ghost {
+    -fx-background-radius: 8, 8;
+    -fx-padding: 10 20 10 20;
+}
+
+/* ---------------------------------------------------------------------------
+   Tabs and toggles: selected = solid red, no glow.
+   --------------------------------------------------------------------------- */
+.av-tab:selected { -fx-effect: none; }
+.play-tab-button:selected, .type-tab-button:selected, .source-toggle-button:selected {
+    -fx-background-color: #e8404f;
+    -fx-background-insets: 0;
+    -fx-effect: none;
+}
+.play-rail-btn:selected, .play-filter:selected, .store-switch:selected {
+    -fx-background-color: #d93544;
+    -fx-background-insets: 0;
+    -fx-effect: none;
+}
+
+/* ---------------------------------------------------------------------------
+   Inputs: softer focus (thin red outline instead of a heavy red fill).
+   --------------------------------------------------------------------------- */
+.text-field, .password-field, .text-area, .store-field, .search-field {
+    -fx-background-color: rgba(255,255,255,0.10), #0a121c;
+    -fx-background-radius: 6, 6;
+    -fx-padding: 11 14 11 14;
+}
+.text-field:focused, .password-field:focused, .text-area:focused,
+.store-field:focused, .search-field:focus-within {
+    -fx-background-color: rgba(255,70,85,0.70), #0a121c;
+    -fx-background-radius: 6, 6;
+}

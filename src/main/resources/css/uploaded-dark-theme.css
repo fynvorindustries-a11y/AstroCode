@@ -1,5 +1,5 @@
 /* ============================================================================
-   Avero Launcher — dark-theme.css  (Red/Orange Edition)
+   ASTRO — dark-theme.css  (Red/Orange Edition)
    Matches the reference screenshot: dark navy base, red-orange accent palette,
    hero banner with fantasy Minecraft art, sidebar with orange-red nav highlight.
    ============================================================================ */
@@ -25,9 +25,9 @@
     -fx-text-background-color:      #f0ece8;
     -fx-accent:                     #e8572a;
     -fx-focus-color:                #e8572a;
-    -fx-faint-focus-color:          rgba(232,87,42,0.15);
-    -fx-selection-bar:              rgba(232,87,42,0.30);
-    -fx-selection-bar-non-focused:  rgba(232,87,42,0.15);
+    -fx-faint-focus-color:          rgba(139,92,246,0.15);
+    -fx-selection-bar:              rgba(139,92,246,0.30);
+    -fx-selection-bar-non-focused:  rgba(139,92,246,0.15);
 
     -fx-background-color: linear-gradient(to bottom right, #0d1117 0%, #111622 50%, #0d1117 100%);
     -fx-text-fill: #f0ece8;
@@ -53,7 +53,7 @@
     -fx-font-size: 19px;
     -fx-font-weight: 800;
     -fx-letter-spacing: 2;
-    -fx-effect: dropshadow(gaussian, rgba(232,87,42,0.30), 8, 0.1, 0, 0);
+    -fx-effect: dropshadow(gaussian, rgba(139,92,246,0.30), 8, 0.1, 0, 0);
 }
 .brand-sublabel {
     -fx-text-fill: #e8572a;
@@ -72,11 +72,11 @@
     -fx-cursor: hand;
 }
 .nav-button:hover {
-    -fx-background-color: rgba(232,87,42,0.08);
+    -fx-background-color: rgba(139,92,246,0.08);
     -fx-text-fill: #f0ece8;
 }
 .nav-button:selected {
-    -fx-background-color: linear-gradient(to right, rgba(232,87,42,0.90), rgba(200,60,20,0.80));
+    -fx-background-color: linear-gradient(to right, rgba(139,92,246,0.90), rgba(139,92,246,0.80));
     -fx-text-fill: #ffffff;
     -fx-font-weight: bold;
 }
@@ -106,7 +106,7 @@
 .content-area { -fx-background-color: transparent; }
 .page-scroll .scroll-bar:vertical { -fx-background-color: transparent; -fx-pref-width: 10; }
 .page-scroll .scroll-bar:vertical .thumb {
-    -fx-background-color: rgba(232,87,42,0.25);
+    -fx-background-color: rgba(139,92,246,0.25);
     -fx-background-radius: 6;
 }
 .page-scroll .scroll-bar:vertical .track { -fx-background-color: transparent; }
@@ -150,7 +150,7 @@
 .about-stat-card, .settings-section, .filters-panel {
     -fx-background-color:
         linear-gradient(to bottom, rgba(255,255,255,0.09), rgba(255,255,255,0.0) 40%),
-        linear-gradient(from 0% 0% to 36% 100%, rgba(232,87,42,0.06) 0%, rgba(18,22,36,0.60) 100%);
+        linear-gradient(from 0% 0% to 36% 100%, rgba(139,92,246,0.06) 0%, rgba(18,22,36,0.60) 100%);
     -fx-background-insets: 0, 1;
     -fx-background-radius: 14, 13;
     -fx-border-color: rgba(255,255,255,0.10);
@@ -160,8 +160,8 @@
 }
 .mod-card:hover, .modpack-card:hover, .partner-card:hover, .recommended-card:hover,
 .dashboard-card:hover, .about-stat-card:hover {
-    -fx-border-color: rgba(232,87,42,0.35);
-    -fx-effect: dropshadow(gaussian, rgba(232,87,42,0.20), 22, 0, 0, 10);
+    -fx-border-color: rgba(139,92,246,0.35);
+    -fx-effect: dropshadow(gaussian, rgba(139,92,246,0.20), 22, 0, 0, 10);
 }
 .recommended-badge {
     -fx-background-color: linear-gradient(to bottom right, #e8a838, #e87070);
@@ -183,7 +183,7 @@
 }
 .hero-greeting {
     -fx-text-fill: #ffffff;
-    -fx-effect: dropshadow(gaussian, rgba(232,87,42,0.25), 14, 0.10, 0, 2);
+    -fx-effect: dropshadow(gaussian, rgba(139,92,246,0.25), 14, 0.10, 0, 2);
 }
 .hero-hint { -fx-text-fill: rgba(240,236,232,0.72); }
 
@@ -212,16 +212,16 @@
     -fx-padding: 8 18 8 18;
     -fx-cursor: hand;
     -fx-effect:
-        dropshadow(gaussian, rgba(232,87,42,0.55), 14, 0.10, 0, 3),
-        dropshadow(gaussian, rgba(160,40,16,0.35), 28, 0.05, 0, 6);
+        dropshadow(gaussian, rgba(139,92,246,0.55), 14, 0.10, 0, 3),
+        dropshadow(gaussian, rgba(139,92,246,0.35), 28, 0.05, 0, 6);
 }
 .primary-button:hover, .primary-cta-button:hover, .btn-primary:hover {
     -fx-background-color:
         linear-gradient(to bottom, rgba(255,255,255,0.26) 0%, rgba(255,255,255,0.0) 50%),
         linear-gradient(from 0% 0% to 100% 20%, #8a1414 0%, #cc3c28 15%, #f06030 38%, #ffaa50 58%, #f07038 78%, #b83420 100%);
     -fx-effect:
-        dropshadow(gaussian, rgba(232,87,42,0.75), 18, 0.12, 0, 4),
-        dropshadow(gaussian, rgba(160,40,16,0.50), 36, 0.06, 0, 8);
+        dropshadow(gaussian, rgba(139,92,246,0.75), 18, 0.12, 0, 4),
+        dropshadow(gaussian, rgba(139,92,246,0.50), 36, 0.06, 0, 8);
 }
 .primary-button:armed, .primary-cta-button:armed, .btn-primary:armed {
     -fx-background-color:
@@ -230,7 +230,7 @@
 }
 .primary-button:disabled, .primary-cta-button:disabled, .btn-primary:disabled {
     -fx-opacity: 1;
-    -fx-background-color: rgba(232,87,42,0.16);
+    -fx-background-color: rgba(139,92,246,0.16);
     -fx-text-fill: rgba(240,236,232,0.50);
     -fx-effect: none;
 }
@@ -238,29 +238,29 @@
 /* ── Secondary — ghost with glowing orange border */
 .secondary-button, .btn-secondary {
     -fx-background-color:
-        linear-gradient(to bottom right, rgba(232,87,42,0.08) 0%, rgba(180,50,20,0.04) 100%);
+        linear-gradient(to bottom right, rgba(139,92,246,0.08) 0%, rgba(139,92,246,0.04) 100%);
     -fx-background-radius: 9;
     -fx-border-color:
-        linear-gradient(to bottom right, rgba(255,130,70,0.55), rgba(200,60,20,0.35));
+        linear-gradient(to bottom right, rgba(255,130,70,0.55), rgba(139,92,246,0.35));
     -fx-border-radius: 9;
     -fx-border-width: 1;
     -fx-text-fill: #ff9060;
     -fx-font-weight: 800;
     -fx-padding: 7 14 7 14;
     -fx-cursor: hand;
-    -fx-effect: dropshadow(gaussian, rgba(232,87,42,0.18), 10, 0.06, 0, 2);
+    -fx-effect: dropshadow(gaussian, rgba(139,92,246,0.18), 10, 0.06, 0, 2);
 }
 .secondary-button:hover, .btn-secondary:hover {
     -fx-background-color:
-        linear-gradient(to bottom right, rgba(232,87,42,0.16) 0%, rgba(180,50,20,0.08) 100%);
+        linear-gradient(to bottom right, rgba(139,92,246,0.16) 0%, rgba(139,92,246,0.08) 100%);
     -fx-border-color:
-        linear-gradient(to bottom right, rgba(255,160,90,0.80), rgba(220,80,30,0.55));
+        linear-gradient(to bottom right, rgba(255,160,90,0.80), rgba(139,92,246,0.55));
     -fx-text-fill: #ffaa78;
-    -fx-effect: dropshadow(gaussian, rgba(232,87,42,0.35), 14, 0.08, 0, 3);
+    -fx-effect: dropshadow(gaussian, rgba(139,92,246,0.35), 14, 0.08, 0, 3);
 }
 .secondary-button:armed, .btn-secondary:armed {
     -fx-background-color:
-        linear-gradient(to bottom right, rgba(180,50,20,0.22) 0%, rgba(130,30,10,0.12) 100%);
+        linear-gradient(to bottom right, rgba(139,92,246,0.22) 0%, rgba(130,30,10,0.12) 100%);
 }
 
 /* ── Success — forest-green to lime sweep */
@@ -304,7 +304,7 @@
     -fx-padding: 7 14 7 14;
     -fx-cursor: hand;
     -fx-effect:
-        dropshadow(gaussian, rgba(210,60,60,0.50), 12, 0.10, 0, 3),
+        dropshadow(gaussian, rgba(139,92,246,0.50), 12, 0.10, 0, 3),
         dropshadow(gaussian, rgba(100,10,10,0.35), 24, 0.05, 0, 5);
 }
 .danger-button:hover, .btn-danger:hover, .uninstall-button:hover, .delete-button:hover {
@@ -312,7 +312,7 @@
         linear-gradient(to bottom, rgba(255,255,255,0.26) 0%, rgba(255,255,255,0.0) 50%),
         linear-gradient(from 0% 0% to 100% 20%, #6e0e0e 0%, #b22020 25%, #e84040 50%, #ff7878 70%, #cc3030 100%);
     -fx-effect:
-        dropshadow(gaussian, rgba(230,80,80,0.70), 16, 0.12, 0, 4),
+        dropshadow(gaussian, rgba(139,92,246,0.70), 16, 0.12, 0, 4),
         dropshadow(gaussian, rgba(120,10,10,0.50), 30, 0.06, 0, 7);
 }
 .danger-button:armed, .btn-danger:armed, .uninstall-button:armed, .delete-button:armed {
@@ -361,7 +361,7 @@
     -fx-font-weight: 800;
     -fx-cursor: hand;
     -fx-effect:
-        dropshadow(gaussian, rgba(232,87,42,0.60), 18, 0.10, 0, 4),
+        dropshadow(gaussian, rgba(139,92,246,0.60), 18, 0.10, 0, 4),
         dropshadow(gaussian, rgba(140,30,10,0.40), 36, 0.06, 0, 9);
 }
 .login-button:hover, .hero-play-button:hover, .hero-setup-button:hover,
@@ -370,8 +370,8 @@
         linear-gradient(to bottom, rgba(255,255,255,0.30) 0%, rgba(255,255,255,0.0) 50%),
         linear-gradient(from 0% 0% to 100% 15%, #961414 0%, #d03c22 12%, #f0682e 32%, #ff9050 50%, #f07438 68%, #d05030 85%, #a02818 100%);
     -fx-effect:
-        dropshadow(gaussian, rgba(255,110,50,0.80), 24, 0.12, 0, 5),
-        dropshadow(gaussian, rgba(160,40,16,0.55), 48, 0.07, 0, 12);
+        dropshadow(gaussian, rgba(139,92,246,0.80), 24, 0.12, 0, 5),
+        dropshadow(gaussian, rgba(139,92,246,0.55), 48, 0.07, 0, 12);
 }
 .login-button:armed, .hero-play-button:armed, .hero-setup-button:armed,
 .hero-choose-version-button:armed, .play-button:armed {
@@ -405,7 +405,7 @@
         linear-gradient(from 0% 0% to 100% 20%, #6e0e0e 0%, #b83220 15%, #e8572a 38%, #ff8c3a 58%, #e06028 78%, #a02810 100%);
     -fx-text-fill: #ffffff;
     -fx-font-weight: bold;
-    -fx-effect: dropshadow(gaussian, rgba(232,87,42,0.40), 10, 0.08, 0, 2);
+    -fx-effect: dropshadow(gaussian, rgba(139,92,246,0.40), 10, 0.08, 0, 2);
 }
 
 /* ── Inputs ──────────────────────────────────────────────────────────── */
@@ -420,8 +420,8 @@
     -fx-background-color: #111622;
     -fx-text-fill: #f0ece8;
 }
-.list-cell:filled:hover    { -fx-background-color: rgba(232,87,42,0.15); }
-.list-cell:filled:selected { -fx-background-color: rgba(232,87,42,0.30); }
+.list-cell:filled:hover    { -fx-background-color: rgba(139,92,246,0.15); }
+.list-cell:filled:selected { -fx-background-color: rgba(139,92,246,0.30); }
 .text-area .content { -fx-background-color: rgba(0,0,0,0.25); }
 .search-field-input { -fx-background-color: transparent; -fx-text-fill: #f0ece8; }
 .search-field-icon  { -fx-fill: rgba(240,236,232,0.5); }
@@ -459,7 +459,7 @@
 }
 
 .first-run-banner {
-    -fx-background-color: linear-gradient(to right, rgba(232,87,42,0.16), rgba(200,80,40,0.10));
+    -fx-background-color: linear-gradient(to right, rgba(139,92,246,0.16), rgba(139,92,246,0.10));
     -fx-border-color: transparent transparent rgba(255,255,255,0.08) transparent;
     -fx-border-width: 0 0 1 0;
 }
@@ -510,7 +510,7 @@
 .changelog-tabs .tab-header-area { -fx-padding: 0 0 0 0; }
 .changelog-tabs .tab {
     -fx-background-color: transparent;
-    -fx-background-radius: 0;
+    -fx-background-radius: 16, 15, 15;
     -fx-padding: 9 4 9 4;
     -fx-focus-color: transparent;
     -fx-faint-focus-color: transparent;
@@ -536,7 +536,7 @@
     -fx-border-width: 0 0 1 0;
 }
 .news-thumb {
-    -fx-background-color: linear-gradient(to bottom right, rgba(232,87,42,0.30), rgba(200,60,20,0.15));
+    -fx-background-color: linear-gradient(to bottom right, rgba(139,92,246,0.30), rgba(139,92,246,0.15));
     -fx-background-radius: 8;
 }
 .news-title, .change-title {
@@ -562,7 +562,7 @@
     -fx-font-size: 10px;
 }
 .change-icon {
-    -fx-background-color: linear-gradient(to bottom right, rgba(232,87,42,0.25), rgba(200,60,20,0.08));
+    -fx-background-color: linear-gradient(to bottom right, rgba(139,92,246,0.25), rgba(139,92,246,0.08));
     -fx-background-radius: 9;
 }
 .change-icon-glyph {
@@ -603,8 +603,8 @@
 .about-copied     { -fx-text-fill: #7ed957; -fx-font-size: 11px; -fx-font-weight: 700; }
 .about-mirror-note { -fx-text-fill: rgba(240,236,232,0.55); -fx-font-size: 11.5px; }
 .about-tag {
-    -fx-background-color: rgba(232,87,42,0.10);
-    -fx-border-color: rgba(232,87,42,0.25);
+    -fx-background-color: rgba(139,92,246,0.10);
+    -fx-border-color: rgba(139,92,246,0.25);
     -fx-border-radius: 7;
     -fx-background-radius: 7;
     -fx-text-fill: rgba(240,236,232,0.75);
@@ -625,7 +625,7 @@
     -fx-padding: 5;
 }
 .mod-card-thumb {
-    -fx-background-color: linear-gradient(to bottom right, rgba(232,87,42,0.22), rgba(200,60,20,0.10));
+    -fx-background-color: linear-gradient(to bottom right, rgba(139,92,246,0.22), rgba(139,92,246,0.10));
     -fx-background-radius: 10 10 0 0;
 }
 .mod-card-title  { -fx-text-fill: #f0ece8; -fx-font-size: 13.5px; -fx-font-weight: 800; }
@@ -673,7 +673,7 @@
     -fx-background-color: linear-gradient(to bottom right, #1e1410 0%, #2a1a10 100%);
 }
 .profile-ice-footer {
-    -fx-background-color: linear-gradient(to bottom, rgba(232,87,42,0.18), rgba(232,87,42,0.03));
+    -fx-background-color: linear-gradient(to bottom, rgba(139,92,246,0.18), rgba(139,92,246,0.03));
 }
 
 /* ── Sliders ─────────────────────────────────────────────────────────── */
@@ -689,7 +689,7 @@
     -fx-background-insets: 0;
     -fx-pref-width: 15;
     -fx-pref-height: 15;
-    -fx-effect: dropshadow(gaussian, rgba(232,87,42,0.55), 7, 0.25, 0, 1);
+    -fx-effect: dropshadow(gaussian, rgba(139,92,246,0.55), 7, 0.25, 0, 1);
 }
 .slider .thumb:hover, .slider:focused .thumb {
     -fx-background-color: linear-gradient(to bottom right, #d44e2a, #ff6a3a);

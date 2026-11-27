@@ -1,0 +1,242 @@
+/* ============================================================================
+   ASTRO — glass-theme.css  (glassmorphism re-skin; loaded LAST, after every other sheet)
+   Rounded, frosted panels floating over a deep-space nebula, replacing the angular Valorant chamfer
+   (ValShape now cuts rounded corners instead — see ValShape.java) with soft corners, translucent
+   fills, a thin bright top-edge "sheen" and ambient glow shadows.
+
+   JavaFX has no real backdrop-filter, so the "frosted glass" is faked the way glassmorphism always
+   was before blur: a lightened translucent fill over a dark tint, a 1px bright top highlight, a
+   soft border, and an ambient drop shadow to lift the panel off the background. Colors come from
+   tokens.css's -av-* and -av-glass-* custom properties only.
+   ============================================================================ */
+
+/* ── App background: near-black, not a lavender wash — a couple of small, contained glows (warm
+   near the logo's top-left corner, cool-violet lower-right) rather than a haze across the whole
+   shell, so the hero photo and the colour in the cards read as vivid against it, not muted. ──── */
+.av-shell {
+    -fx-background-color:
+        radial-gradient(center 6% 4%,   radius 32%, rgba(255,140,60,0.10) 0%, transparent 70%),
+        radial-gradient(center 92% 90%, radius 45%, rgba(124,92,255,0.12) 0%, transparent 70%),
+        linear-gradient(to bottom right, #0b0810 0%, #09070e 50%, #050408 100%);
+}
+
+/* ── Glass card (kit.Card: .av-card-host > .av-card) ───────────────────────────────────────── */
+.av-card-host { -fx-background-color: transparent; }
+.av-card {
+    -fx-background-color:
+        linear-gradient(to bottom, -av-glass-highlight 0%, transparent 16%),
+        -av-glass-fill,
+        -av-glass-base;
+    -fx-background-insets: 0, 0, 1;
+    -fx-background-radius: 18;
+    -fx-border-color: -av-glass-border;
+    -fx-border-width: 1;
+    -fx-border-radius: 18;
+    -fx-effect: dropshadow(gaussian, rgba(4,2,20,0.45), 24, 0.05, 0, 10);
+}
+.av-card-hot:hover {
+    -fx-background-color:
+        linear-gradient(to bottom, -av-glass-highlight 0%, transparent 20%),
+        -av-glass-fill-hover,
+        -av-glass-base-hover;
+    -fx-background-insets: 0, 0, 1;
+    -fx-border-color: -av-glass-border-hot;
+    -fx-effect: dropshadow(gaussian, rgba(124,92,255,0.22), 28, 0.08, 0, 10);
+}
+.av-card-active {
+    -fx-background-color:
+        linear-gradient(to bottom, -av-glass-highlight 0%, transparent 20%),
+        -av-glass-fill-active,
+        -av-glass-base-hover;
+    -fx-background-insets: 0, 0, 1;
+    -fx-border-color: -av-glass-violet-hot;
+    -fx-effect: dropshadow(gaussian, rgba(124,92,255,0.35), 26, 0.12, 0, 8);
+}
+/* corner notch becomes a soft violet glow dot rather than a hard-edged triangle */
+.av-card-notch { -fx-background-color: radial-gradient(center 100% 0%, radius 100%, -av-glass-violet 0%, transparent 70%); }
+
+/* ── Buttons ────────────────────────────────────────────────────────────────────────────────── */
+.av-btn-primary, .av-btn-play {
+    -fx-background-radius: 999;
+    -fx-effect: dropshadow(gaussian, rgba(255,122,61,0.35), 18, 0.12, 0, 4);
+}
+.av-btn-primary:hover, .av-btn-play:hover {
+    -fx-effect: dropshadow(gaussian, rgba(255,138,61,0.55), 24, 0.16, 0, 5);
+}
+.av-btn-ghost {
+    -fx-background-color:
+        linear-gradient(to bottom, -av-glass-highlight 0%, transparent 25%),
+        -av-glass-fill,
+        -av-glass-base;
+    -fx-background-insets: 0, 0, 1;
+    -fx-background-radius: 999;
+    -fx-border-color: -av-glass-border;
+    -fx-border-width: 1;
+    -fx-border-radius: 999;
+}
+.av-btn-ghost:hover {
+    -fx-background-color:
+        linear-gradient(to bottom, -av-glass-highlight 0%, transparent 25%),
+        -av-glass-fill-hover,
+        -av-glass-base-hover;
+    -fx-background-insets: 0, 0, 1;
+    -fx-border-color: -av-glass-border-hot;
+}
+.av-btn-ghost:armed { -fx-background-color: -av-glass-fill-active, -av-glass-base-hover; -fx-background-insets: 0, 1; }
+
+/* ── Rail sidebar (RailSidebar): glass panel with a rounded violet pill on the active item ──── */
+.av-rail {
+    -fx-background-color:
+        linear-gradient(to right, rgba(255,255,255,0.05) 0%, transparent 2%),
+        rgba(10,8,24,0.55);
+}
+.av-rail-edge { -fx-background-color: -av-glass-border; }
+
+.av-rail-item { -fx-background-radius: 12; -fx-background-insets: 4 8 4 8; }
+.av-rail-item:hover { -fx-background-color: -av-glass-fill; -fx-background-insets: 4 8 4 8; -fx-background-radius: 12; }
+/* Solid filled square rather than a soft fade-out — punchier, closer to a flat brand-colour tile. */
+.av-rail-item:selected,
+.av-rail-item:selected:hover,
+.av-rail-item:selected:focused,
+.root:kbd .av-rail-item:selected:focused {
+    -fx-background-color: -av-glass-violet;
+    -fx-background-insets: 4 8 4 8;
+    -fx-background-radius: 12;
+}
+.av-rail-item:selected .nav-icon       { -fx-fill: transparent; -fx-stroke: #ffffff; }
+.av-rail-item:selected .nav-icon-fill  { -fx-fill: #ffffff; -fx-stroke: #ffffff; }
+.av-rail-item:selected .av-rail-label  { -fx-text-fill: #ffffff; }
+.av-rail-indicator {
+    -fx-background-color: -av-glass-violet;
+    -fx-effect: dropshadow(gaussian, rgba(124,92,255,0.55), 10, 0.25, 0, 0);
+}
+
+/* ── Top bar: search field + account chip become glass pills ─────────────────────────────────── */
+.av-topbar { -fx-border-width: 0; } /* the hairline reads oddly floating over the nebula */
+.search-field, .account-chip {
+    -fx-background-color:
+        linear-gradient(to bottom, -av-glass-highlight 0%, transparent 30%),
+        -av-glass-fill,
+        -av-glass-base;
+    -fx-background-insets: 0, 0, 1;
+    -fx-background-radius: 999;
+    -fx-border-color: -av-glass-border;
+    -fx-border-width: 1;
+    -fx-border-radius: 999;
+}
+.search-field:hover, .account-chip:hover {
+    -fx-border-color: -av-glass-border-hot;
+    -fx-background-color: linear-gradient(to bottom, -av-glass-highlight 0%, transparent 30%), -av-glass-fill-hover, -av-glass-base-hover;
+    -fx-background-insets: 0, 0, 1;
+}
+.search-field:focus-within { -fx-border-color: -av-glass-violet-hot; }
+.avatar-circle, .profile-avatar {
+    -fx-background-color: linear-gradient(to bottom right, -av-glass-violet-hot, -av-glass-violet);
+    -fx-background-radius: 999;
+}
+
+/* "Offline" / "Microsoft" / "Astro account" tag under the name: its own small glass pill, with a
+   status dot (green while signed in, dim while a guest) rather than bare text floating in the chip. */
+.account-tag {
+    -fx-background-color: -av-glass-fill, -av-glass-base;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 999;
+    -fx-border-color: -av-glass-border;
+    -fx-border-width: 1;
+    -fx-border-radius: 999;
+    -fx-padding: 2 9 2 7;
+}
+.account-tag-label { -fx-text-fill: rgba(236,232,225,0.68); -fx-font-size: 10px; }
+.account-tag-dot {
+    -fx-min-width: 7; -fx-pref-width: 7; -fx-max-width: 7;
+    -fx-min-height: 7; -fx-pref-height: 7; -fx-max-height: 7;
+    -fx-background-radius: 999;
+    -fx-background-color: -mc-xp;
+    -fx-effect: dropshadow(gaussian, rgba(124,242,58,0.65), 6, 0.45, 0, 0);
+}
+.account-tag-dot:offline { -fx-background-color: rgba(236,232,225,0.38); -fx-effect: none; }
+
+/* The rest of the badge family (mod/modpack tags, chips) -> small glass pill to match. */
+.av-chip, .about-status-pill, .modpack-card-tag, .mod-tag, .partner-mode-badge, .about-tag, .auto-chip {
+    -fx-background-color: -av-glass-fill, -av-glass-base;
+    -fx-background-insets: 0, 1;
+    -fx-border-color: -av-glass-border; -fx-border-width: 1;
+}
+/* "PARTNER": a flat, solid brand-colour pill (not translucent like the other small tags) so it
+   reads as a badge of honour on the community banners rather than just another muted label. */
+.partner-mode-badge {
+    -fx-background-color: -av-glass-violet;
+    -fx-border-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+/* ── Update bar / icon buttons / chips / tabs: round everything to match ─────────────────────── */
+.av-update-bar {
+    -fx-background-color: linear-gradient(to bottom, -av-glass-highlight 0%, transparent 30%), -av-glass-fill, -av-glass-base;
+    -fx-background-insets: 0, 0, 1;
+    -fx-background-radius: 18;
+    -fx-border-color: -av-glass-border;
+    -fx-border-width: 1;
+    -fx-border-radius: 18;
+}
+.av-icon-btn { -fx-background-radius: 12; }
+.av-icon-btn:hover { -fx-background-color: -av-glass-fill; -fx-background-radius: 12; }
+.av-chip { -fx-background-radius: 999; -fx-background-color: -av-glass-fill; }
+.av-chip-accent { -fx-background-color: -av-glass-violet; }
+.av-tab:selected { -fx-border-color: transparent transparent -av-glass-violet-hot transparent; }
+
+/* ── Home: hero, quick-action tiles, version select, partner banners ─────────────────────────── */
+.home-hero {
+    -fx-background-color: -av-glass-border, -av-glass-base;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 26;
+    -fx-border-color: -av-glass-border;
+    -fx-border-width: 1;
+    -fx-border-radius: 26;
+    -fx-effect: dropshadow(gaussian, rgba(4,2,20,0.55), 36, 0.05, 0, 16);
+}
+/* Kept subtle on purpose: the hero photo itself should read vivid and saturated, not tinted over. */
+.home-hero-light { -fx-background-color: radial-gradient(center 30% 35%, radius 65%, rgba(124,92,255,0.12) 0%, transparent 100%); }
+.home-eyebrow { -fx-text-fill: -av-glass-violet-hot; }
+.home-hero-card {
+    -fx-background-color: -av-glass-fill, -av-glass-base;
+    -fx-background-insets: 0, 1;
+    -fx-border-color: -av-glass-border; -fx-border-width: 1; -fx-border-radius: 18;
+    -fx-background-radius: 18;
+}
+.home-play-glow { -fx-background-color: radial-gradient(center 50% 50%, radius 60%, rgba(255,122,61,0.45) 0%, transparent 100%); }
+.home-version-select {
+    -fx-background-color: linear-gradient(to bottom, -av-glass-highlight 0%, transparent 30%), -av-glass-fill, -av-glass-base;
+    -fx-background-insets: 0, 0, 1;
+    -fx-background-radius: 18;
+    -fx-border-color: -av-glass-border; -fx-border-width: 1; -fx-border-radius: 18;
+}
+.home-version-select:hover { -fx-border-color: -av-glass-border-hot; }
+
+.home-quick:hover .home-quick-arrow { -fx-text-fill: -av-glass-violet-hot; }
+.home-quick-kicker { -fx-text-fill: -av-glass-violet-hot; }
+
+.home-banner-host, .home-banner-server {
+    -fx-background-radius: 18;
+    -fx-border-color: -av-glass-border; -fx-border-width: 1; -fx-border-radius: 18;
+}
+.home-logo-tile { -fx-background-color: -av-glass-border, -av-glass-base; -fx-background-insets: 0, 1; -fx-background-radius: 12; }
+.home-partner-ip { -fx-background-color: -av-glass-border, -av-glass-base; -fx-background-insets: 0, 1; -fx-background-radius: 12; }
+.home-leaderboard-btn { -fx-border-radius: 999; -fx-background-radius: 999, 999; }
+
+/* ── Cape preview / leaderboard drawer: round to match ────────────────────────────────────────── */
+.av-cape-preview {
+    -fx-background-color: -av-glass-border, -av-glass-base;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 18;
+    -fx-border-color: -av-glass-border; -fx-border-width: 1; -fx-border-radius: 18;
+}
+.lb-overlay-panel { -fx-background-radius: 18 0 0 18; }
+
+/* A touch more visible than the ~22% opacity hairline thumb elsewhere: on a short (non-maximized)
+   window, pages often need to scroll, and a thumb this faint reads as "nothing more here" rather
+   than "scroll for more" — bumped opacity/width, still slim and out of the way. */
+.page-scroll .scroll-bar:vertical { -fx-pref-width: 10; }
+.page-scroll .scroll-bar:vertical .thumb { -fx-background-color: rgba(236,232,225,0.32); -fx-background-radius: 999; -fx-background-insets: 2; }
+.page-scroll .scroll-bar:vertical .thumb:hover { -fx-background-color: -av-glass-violet-hot; }

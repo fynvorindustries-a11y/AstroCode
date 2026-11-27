@@ -1,0 +1,44 @@
+/* ============================================================================
+   ux.css - loaded LAST (after mc-theme / splash), so it wins over every older rule.
+   Play page: one flat, readable card with a full-width PLAY button. Accounts page: "Playing as" banner.
+   ============================================================================ */
+
+/* ── Play ─────────────────────────────────────────────────────────────── */
+.play-stage-content { -fx-padding: 24 28 28 28; }
+
+.play-card {
+    -fx-padding: 22 28 24 28;
+}
+.play-title   { -fx-font-size: 32px; }
+.play-hint    { -fx-font-size: 14px; -fx-text-fill: -av-text-dim; }
+.play-fact-key { -fx-font-size: 10px; }
+.play-fact-val { -fx-font-size: 14px; }
+.play-facts    { -fx-padding: 12 0 0 0; }
+
+/* PLAY: fills the card width, big and obvious */
+.play-card .play-go {
+    -fx-min-width: 120; -fx-pref-width: 480; -fx-max-width: 100000;
+    -fx-min-height: 60; -fx-pref-height: 60; -fx-font-size: 24px;
+}
+.play-card .play-go:disabled { -fx-opacity: 0.55; }
+
+/* Version picker a little taller = easier target */
+.play-card .play-select { -fx-pref-height: 48; -fx-pref-width: 400; }
+
+/* Filter toggles under the picker: small, quiet */
+.play-card .play-filter { -fx-font-size: 11px; -fx-padding: 7 12 7 12; }
+
+/* Player tile: clearly clickable */
+.play-switch-hint { -fx-font-family: "Montserrat", "Segoe UI", sans-serif; -fx-font-weight: bold; -fx-font-size: 10px; -fx-text-fill: -av-accent-hot; }
+.play-rail-tile:hover .play-switch-hint { -fx-text-fill: -av-text; }
+
+/* ── Accounts ─────────────────────────────────────────────────────────── */
+.acct-banner {
+    -fx-background-color: rgba(255,255,255,0.10), linear-gradient(to right, rgba(255,70,85,0.20) 0%, rgba(255,70,85,0.00) 70%), linear-gradient(from 30% 0% to 70% 100%, rgba(18,32,52,0.98) 0%, rgba(10,18,30,0.98) 100%);
+    -fx-background-insets: 0, 1, 1;
+    -fx-padding: 18 22 18 22;
+}
+.acct-banner-kicker { -fx-font-family: "Montserrat", "Segoe UI", sans-serif; -fx-font-weight: bold; -fx-font-size: 10px; -fx-text-fill: -av-accent-hot; }
+.acct-banner-name   { -fx-font-family: "Montserrat", "Segoe UI", sans-serif; -fx-font-weight: bold; -fx-font-size: 24px; -fx-text-fill: -av-text; }
+.acct-banner-sub    { -fx-font-family: "Montserrat", "Segoe UI", sans-serif; -fx-font-size: 12px; -fx-text-fill: -av-text-dim; }
+.acct-tile          { -fx-padding: 10 14 10 12; }

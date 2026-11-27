@@ -3,12 +3,14 @@ plugins {
     id 'org.openjfx.javafxplugin' version '0.1.0'
 }
 
-group = 'com.averolauncher'
-// Bump this for every release — it's the version the auto-update system compares
-// against the tags published at https://github.com/fynvorindustries-a11y/AveroLauncher/releases,
-// and it's injected into version.properties (see processResources below) so
-// AppVersion.CURRENT always matches whatever was actually built.
-version = '4.0.0'
+group = 'com.astrolauncher'
+// The version the auto-update system compares against the release tags published at
+// https://github.com/fynvorindustries-a11y/AstroLauncher/releases
+// The release workflow passes the tag in with -PappVersion=X.Y.Z (so the built app always carries the
+// tag's version). For a local build with no -PappVersion it falls back to the number after the colon.
+// It is injected into version.properties (see processResources below) so AppVersion.CURRENT matches
+// whatever was actually built.
+version = project.hasProperty('appVersion') ? project.property('appVersion') : '5.0.0'
 
 repositories {
     mavenCentral()
@@ -27,7 +29,7 @@ javafx {
 
 dependencies {
     implementation 'com.google.code.gson:gson:2.11.0'
-    // WebP decoding for ImageIO — Modrinth serves most project icons as WebP, which JavaFX can't read.
+    // WebP decoding for ImageIO - Modrinth serves most project icons as WebP, which JavaFX can't read.
     // Pure-Java plugin (no native libraries to load, unlike the older sejda one).
     implementation 'com.twelvemonkeys.imageio:imageio-webp:3.12.0'
     implementation 'org.slf4j:slf4j-api:2.0.13'
@@ -38,7 +40,7 @@ dependencies {
 }
 
 application {
-    mainClass = 'com.averolauncher.AveroLauncherApplication'
+    mainClass = 'com.astrolauncher.AstroLauncherApplication'
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -46,7 +48,7 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 // Stamps the real project version into version.properties on the classpath so
-// com.averolauncher.update.AppVersion.CURRENT is always accurate — see the
+// com.astrolauncher.update.AppVersion.CURRENT is always accurate - see the
 // comment on `version` above and version.properties itself.
 processResources {
     filesMatching('version.properties') {
@@ -61,7 +63,7 @@ test {
 // Ensures module-path launch works correctly with JavaFX plugin on all platforms
 tasks.named('run') {
     jvmArgs = ['-Dfile.encoding=UTF-8']
-    // `gradlew run -Davero.store.api=http://localhost:8787/api/v1` -> forwarded to the launcher JVM
-    def storeApi = System.getProperty('avero.store.api')
-    if (storeApi) { systemProperty 'avero.store.api', storeApi }
+    // `gradlew run -Dastro.store.api=http://localhost:8787/api/v1` -> forwarded to the launcher JVM
+    def storeApi = System.getProperty('astro.store.api')
+    if (storeApi) { systemProperty 'astro.store.api', storeApi }
 }

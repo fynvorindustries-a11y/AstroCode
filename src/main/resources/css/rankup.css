@@ -15,13 +15,13 @@
 
 /* ── top bar ──────────────────────────────────────────────────────────── */
 .rankup-topbar { -fx-padding: 22 28 0 28; }
-.rankup-wordmark { -fx-font-family: "Avero Tracked"; -fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: -av-text; }
+.rankup-wordmark { -fx-font-family: "Montserrat", "Segoe UI", sans-serif; -fx-font-weight: bold; -fx-font-size: 13px; -fx-text-fill: -av-text; }
 
 .rankup-skip {
     -fx-background-color: transparent;
     -fx-background-insets: 0;
     -fx-border-width: 0;
-    -fx-font-family: "Barlow"; -fx-font-size: 11px; -fx-text-fill: -av-text-mute;
+    -fx-font-family: "Montserrat", "Segoe UI", sans-serif; -fx-font-size: 10px; -fx-text-fill: -av-text-mute;
     -fx-padding: 6 6 6 6;
     -fx-cursor: hand;
 }
@@ -39,19 +39,19 @@
 
 /* ── header / title ───────────────────────────────────────────────────── */
 .rankup-rule { -fx-background-color: -av-line-2; -fx-min-height: 1; -fx-max-height: 1; -fx-pref-width: 50; }
-.rankup-kicker { -fx-font-family: "Avero Display"; -fx-font-weight: bold; -fx-font-size: 22px; -fx-text-fill: -av-text; }
-.rankup-kicker-sub { -fx-font-family: "Avero Tracked"; -fx-font-weight: bold; -fx-font-size: 10px; -fx-text-fill: -av-text-mute; }
+.rankup-kicker { -fx-font-family: "Montserrat", "Segoe UI", sans-serif; -fx-font-weight: bold; -fx-font-size: 18px; -fx-text-fill: -av-text; }
+.rankup-kicker-sub { -fx-font-family: "Montserrat", "Segoe UI", sans-serif; -fx-font-weight: bold; -fx-font-size: 10px; -fx-text-fill: -av-text-mute; }
 
-.rankup-promoted { -fx-font-family: "Avero Tracked"; -fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: -av-text-dim; }
-.rankup-rankname { -fx-font-family: "Avero Display"; -fx-font-weight: bold; -fx-font-size: 46px; }
-.rankup-tagline  { -fx-font-family: "Avero Tracked"; -fx-font-weight: bold; -fx-font-size: 11px; -fx-text-fill: -av-text-mute; }
-.rankup-caption  { -fx-font-family: "Barlow"; -fx-font-size: 13px; -fx-text-fill: -av-text-mute; }
+.rankup-promoted { -fx-font-family: "Montserrat", "Segoe UI", sans-serif; -fx-font-weight: bold; -fx-font-size: 12px; -fx-text-fill: -av-text-dim; }
+.rankup-rankname { -fx-font-family: "Montserrat", "Segoe UI", sans-serif; -fx-font-weight: bold; -fx-font-size: 39px; }
+.rankup-tagline  { -fx-font-family: "Montserrat", "Segoe UI", sans-serif; -fx-font-weight: bold; -fx-font-size: 10px; -fx-text-fill: -av-text-mute; }
+.rankup-caption  { -fx-font-family: "Montserrat", "Segoe UI", sans-serif; -fx-font-size: 12px; -fx-text-fill: -av-text-mute; }
 
 /* ── stats row ────────────────────────────────────────────────────────── */
-.rankup-stat-label { -fx-font-family: "Avero Tracked"; -fx-font-weight: bold; -fx-font-size: 10px; -fx-text-fill: -av-text-mute; }
-.rankup-stat-value { -fx-font-family: "Barlow"; -fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: -av-text; }
-.rankup-ap-value   { -fx-font-family: "Avero Display"; -fx-font-weight: bold; -fx-font-size: 28px; }
-.rankup-ap-caption { -fx-font-family: "Avero Tracked"; -fx-font-weight: bold; -fx-font-size: 10px; -fx-text-fill: -av-text-mute; }
+.rankup-stat-label { -fx-font-family: "Montserrat", "Segoe UI", sans-serif; -fx-font-weight: bold; -fx-font-size: 10px; -fx-text-fill: -av-text-mute; }
+.rankup-stat-value { -fx-font-family: "Montserrat", "Segoe UI", sans-serif; -fx-font-weight: bold; -fx-font-size: 13px; -fx-text-fill: -av-text; }
+.rankup-ap-value   { -fx-font-family: "Montserrat", "Segoe UI", sans-serif; -fx-font-weight: bold; -fx-font-size: 24px; }
+.rankup-ap-caption { -fx-font-family: "Montserrat", "Segoe UI", sans-serif; -fx-font-weight: bold; -fx-font-size: 10px; -fx-text-fill: -av-text-mute; }
 
 /* glass cards for Previous / AP gained / Next */
 .rankup-card {
@@ -67,7 +67,7 @@
 .rankup-ladder-link { -fx-background-color: rgba(255,255,255,0.14); -fx-background-radius: 1; }
 
 .rankup-barwrap  { -fx-pref-width: 420; -fx-max-width: 420; }
-.rankup-bartext  { -fx-font-family: "Barlow"; -fx-font-size: 12px; -fx-text-fill: -av-text-dim; }
+.rankup-bartext  { -fx-font-family: "Montserrat", "Segoe UI", sans-serif; -fx-font-size: 11px; -fx-text-fill: -av-text-dim; }
 .rankup-bar-tick { -fx-background-color: rgba(5, 7, 12, 0.55); }
 
 /* ── continue ─────────────────────────────────────────────────────────── */
@@ -76,4 +76,4 @@
 
 /* ── footer ───────────────────────────────────────────────────────────── */
 .rankup-footer      { -fx-padding: 0 28 18 28; }
-.rankup-footer-text { -fx-font-family: "Avero Tracked"; -fx-font-weight: bold; -fx-font-size: 10px; -fx-text-fill: -av-text-mute; }
+.rankup-footer-text { -fx-font-family: "Montserrat", "Segoe UI", sans-serif; -fx-font-weight: bold; -fx-font-size: 10px; -fx-text-fill: -av-text-mute; }
