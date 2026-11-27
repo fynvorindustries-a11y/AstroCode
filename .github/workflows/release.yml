@@ -1,3 +1,19 @@
+# Builds ASTRO from this repo and publishes a signed, file-level update to the AstroLauncher releases.
+#
+# Trigger: push a plain version tag in THIS repo (AstroCode), e.g.  git tag 5.1.0 && git push origin 5.1.0
+#          (or run it by hand: Actions > Release > Run workflow > version).
+#
+# What it does, in plain words:
+#   1. builds the launcher + a Windows app image (ASTRO/ASTRO.exe + runtime + jars)
+#   2. downloads the previous release's update-manifest.json from AstroLauncher
+#   3. hashes EVERY file of the new build against it  -> that is the "which files changed" step
+#   4. packs the files into payload.pack, writes + signs update-manifest.json
+#   5. publishes the release to AstroLauncher (as a draft first, so users never see a half-uploaded release)
+# Installed launchers then fetch the manifest, hash their own files, and download ONLY the ones that differ.
+#
+# One-time setup (repo Settings > Secrets and variables > Actions):
+#   UPDATE_SIGNING_KEY  base64 PKCS#8 Ed25519 private key whose public half is in src/main/resources/updater/trusted-keys.json (id k1)
+#   RELEASE_TOKEN       fine-grained PAT with "Contents: read & write" on fynvorindustries-a11y/AstroLauncher
 name: Release
 
 on:
@@ -43,14 +59,14 @@ jobs:
           echo "VERSION=$V" >> "$GITHUB_ENV"
 
       - name: Build
-        run: ./gradlew installDist -Pversion="$VERSION" --no-daemon
+        run: ./gradlew installDist -PappVersion="$VERSION" --no-daemon
 
       - name: Check the build really carries this version
         run: |
           F=$(find build -name version.properties | head -1)
           echo "$F: $(cat "$F")"
           grep -q "app.version=$VERSION" "$F" || {
-            echo "::error::Built version is not $VERSION. build.gradle must not hard-code the project 'version'; remove it or set it to $VERSION."; exit 1; }
+            echo "::error::Built version is not $VERSION. the version in build.gradle must come from -PappVersion."; exit 1; }
 
       - name: Make the Windows app image
         run: |
@@ -70,6 +86,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         run: |
+          # If the latest release has no manifest (e.g. the old AveroLauncher ones), this simply fails and the
+          # first Astro release is treated as "everything is new". That is expected once.
           gh release download --repo "$LAUNCHER_REPO" --pattern update-manifest.json --output prev-manifest.json \
             && echo "HAVE_PREV=1" >> "$GITHUB_ENV" || echo "No previous manifest found; first incremental release."
 
@@ -97,6 +115,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         run: |
+          # Draft first, then publish: an installed launcher never sees a release whose files are still uploading.
           gh release create "$VERSION" --repo "$LAUNCHER_REPO" --draft --title "ASTRO $VERSION" --notes-file notes.md \
             release-out/payload.pack release-out/update-manifest.json release-out/update-manifest.json.sig \
             "$APP_NAME-$VERSION-win.zip"
